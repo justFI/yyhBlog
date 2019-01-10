@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from article import views
+from article.views import RSSFeed
 
 urlpatterns = [
     path('admin/', admin.site.urls), #可以使用设置好的url进入网站后台
     path('',views.home, name = 'home'),
     path('<int:id>/',views.detail,name = 'detail'),
-
-    
+    path('archives/', views.archives,name = 'archives'),
+    path('aboutme/',views.aboutme,name='about_me'),
+    path('tag/<slug:tag>/',views.search_tag,name='search_tag'),
+    path('search/',views.blog_search,name='search'),
+    path('feed/',RSSFeed(),name='RSS'),
 ]
