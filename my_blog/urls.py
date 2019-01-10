@@ -19,6 +19,8 @@ from article import views
 
 urlpatterns = [
     path('admin/', admin.site.urls), #可以使用设置好的url进入网站后台
-    path('',views.home),
+    path('',views.home, name = 'home'),
+    path('<int:id>/',views.detail,name = 'detail'),
+
     
 ]
